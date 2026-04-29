@@ -1,0 +1,74 @@
+{
+  "ts-node": {
+    "esm": true,
+    "experimentalEsm": true,
+    "transpileOnly": true
+  },
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": [
+      "ES2022"
+    ],
+    "moduleResolution": "node",
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@db/*": [
+        "./db/*"
+      ],
+      "@repos/*": [
+        "./repositories/*"
+      ],
+      "@services/*": [
+        "./services/*"
+      ],
+      "@controllers/*": [
+        "./controllers/*"
+      ],
+      "@routes/*": [
+        "./routes/*"
+      ],
+      "@types/*": [
+        "./types/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ],
+      "@config/*": [
+        "./config/*"
+      ],
+      "@kafka/*": [
+        "./kafka/*"
+      ],
+      "@cache/*": [
+        "./cache/*"
+      ]
+    },
+    "types": [
+      "node",
+      "jest"
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts"
+  ]
+}

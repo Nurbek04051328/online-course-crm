@@ -120,7 +120,7 @@ export class BaseRepository<T = any> implements IBaseRepository<T> {
    */
   async count(where: Record<string, any> = {}): Promise<number> {
     let whereClause = '';
-    const values = [];
+    const values: unknown[] = [];
     let paramIndex = 1;
 
     if (Object.keys(where).length > 0) {

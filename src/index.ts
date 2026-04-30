@@ -3,6 +3,8 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
 import { connectDatabase, disconnectDatabase } from './db/pg/client.js';
+import routes from './routes/index.js';
+
 
 dotenv.config();
 
@@ -27,6 +29,10 @@ app.get('/health', (req: Request, res: Response) => {
     uptime: process.uptime(),
   });
 });
+
+
+// API Routes
+app.use('/api', routes);
 
 // API Routes (TODO - will add later)
 app.get('/api', (req: Request, res: Response) => {

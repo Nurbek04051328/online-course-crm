@@ -14,7 +14,7 @@ export interface User {
   telegram_id?: string;
   username: string;
   password: string;
-  user_type: UserType;
+  user_type?: UserType;
   first_name: string;
   last_name: string;
   avatar?: string;
@@ -403,22 +403,6 @@ export interface PaginatedResponse<T = any> {
   };
 }
 
-/**
- * Request Auth Types
- */
-export interface AuthToken {
-  accessToken: string;
-  refreshToken: string;
-  expiresIn: number;
-}
-
-export interface JwtPayload {
-  sub: string;
-  userId: string;
-  userType: UserType;
-  iat: number;
-  exp: number;
-}
 
 /**
  * Kafka Event Types
@@ -503,3 +487,50 @@ export interface CreateLessonDto {
   order: number;
   isFree?: boolean;
 }
+
+// ========================================
+// Authentication & Authorization Types
+// ========================================
+
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  accessToken: string;
+  refreshToken: string;
+  user: Omit<User, 'password'>;
+}
+
+export interface RegisterRequest {
+  email: string;
+  username: string;
+  password: string;
+  first_name: string;
+  last_name: string;
+  user_type: 'TEACHER' | 'STUDENT';
+}
+
+export interface JwtPayload {
+  sub: string;
+  email: string;
+  username: string;
+  user_type: string;
+  iat?: number;
+  exp?: number;
+}
+
+export interface AuthToken {
+  accessToken: string;
+  refreshToken: string;
+  expiresIn: number;
+}
+
+// export interface JwtPayload {
+//   sub: string;
+//   userId: string;
+//   userType: UserType;
+//   iat: number;
+//   exp: number;
+// }

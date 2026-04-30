@@ -204,6 +204,7 @@ export interface Payment {
   id: string;
   student_id: string;
   course_id: string;
+  enrollment_id: string;
   amount: number;
   currency: string;
   method: PaymentMethod;
